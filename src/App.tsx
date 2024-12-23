@@ -7,12 +7,13 @@ import { Task } from "./types";
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  const addTask = (task: Task) => {
+  const addTask = (task: Task, callback: () => void) => {
     const taskWithId = {
       ...task,
       id: `${Date.now()}--${Math.random()}`,
     };
 
+    callback();
     const updatedTasks = [...tasks, taskWithId];
 
     setTasks(updatedTasks);

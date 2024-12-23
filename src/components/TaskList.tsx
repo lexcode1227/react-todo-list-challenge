@@ -96,7 +96,7 @@ const TaskList = ({
           ))}
         </ul>
       ) : (
-        <p>No se encontraron tareas con ese nombre</p>
+        <p>Not found result</p>
       )}
     </section>
   );

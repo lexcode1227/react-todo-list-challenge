@@ -4,11 +4,16 @@ import "./Form.css";
 import { todoSchema } from "../validation/dataSchema";
 import { mappedPriority, Task } from "../types";
 
-const Form = ({ addTask }: { addTask: (task: Task) => void }) => {
+const Form = ({
+  addTask,
+}: {
+  addTask: (task: Task, callback: () => void) => void;
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Task>({
     resolver: zodResolver(todoSchema),
     defaultValues: {
@@ -22,8 +27,11 @@ const Form = ({ addTask }: { addTask: (task: Task) => void }) => {
     </option>
   ));
 
+  const onSubmit = (data: Task) => {
+    addTask(data, reset);
+  };
   return (
-    <form className="form" onSubmit={handleSubmit(addTask)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="formGroup">
         <label className="label" htmlFor="taskName">
           Task Name
