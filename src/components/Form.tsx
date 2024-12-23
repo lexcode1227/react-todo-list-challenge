@@ -2,14 +2,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import "./Form.css";
 import { todoSchema } from "../validation/dataSchema";
-import { FormData, mappedPriority } from "../types";
+import { mappedPriority, Task } from "../types";
 
-const Form = () => {
+const Form = ({ addTask }: { addTask: (task: Task) => void }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<Task>({
     resolver: zodResolver(todoSchema),
     defaultValues: {
       completed: false,
@@ -22,15 +22,8 @@ const Form = () => {
     </option>
   ));
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form data:", data);
-    const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-    existingTasks.push(data);
-    localStorage.setItem("tasks", JSON.stringify(existingTasks));
-  };
-
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(addTask)}>
       <div className="formGroup">
         <label className="label" htmlFor="taskName">
           Task Name

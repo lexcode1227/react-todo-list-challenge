@@ -1,14 +1,47 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import TaskList from "./components/TaskList";
+import { Task } from "./types";
 
 function App() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (task: Task) => {
+    const updatedTasks = [...tasks, task];
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  const deleteTask = (TasktoDelete: Task) => {
+    const updatedTasks = tasks.filter((task) => task.id !== TasktoDelete.id);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  const handleCheckboxChange = (id: string | undefined) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  useEffect(() => {
+    const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    setTasks(existingTasks);
+  }, []);
+
   return (
     <main className="container">
       <h1 className="todoTitle">Todo List</h1>
       <section className="todoList">
-        <Form />
-        <TaskList />
+        <Form addTask={addTask} />
+        <TaskList
+          tasks={tasks}
+          deleteTask={deleteTask}
+          handleCheckboxChange={handleCheckboxChange}
+        />
       </section>
     </main>
   );

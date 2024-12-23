@@ -22,14 +22,4 @@ export type Task = {
   id?: string;
 };
 
-export type FormData = {
-  taskName: string;
-  priority: string;
-  storyPoints: number;
-  assignedTo: string;
-  dueDate: string;
-  completed: boolean;
-  search?: string;
-};
-
 export type SearchFormData = z.infer<typeof searchTodoSchema>;
