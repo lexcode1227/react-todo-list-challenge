@@ -8,7 +8,13 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addTask = (task: Task) => {
-    const updatedTasks = [...tasks, task];
+    const taskWithId = {
+      ...task,
+      id: `${Date.now()}--${Math.random()}`,
+    };
+
+    const updatedTasks = [...tasks, taskWithId];
+
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
