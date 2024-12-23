@@ -27,6 +27,8 @@ const Form = ({
     </option>
   ));
 
+  const today = new Date().toISOString().split("T")[0];
+
   const onSubmit = (data: Task) => {
     addTask(data, reset);
   };
@@ -98,6 +100,7 @@ const Form = ({
           type="date"
           {...register("dueDate", { valueAsDate: true })}
           required
+          min={today}
         />
         {errors.dueDate && <span>{errors.dueDate.message}</span>}
       </div>
