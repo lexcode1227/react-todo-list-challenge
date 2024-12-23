@@ -49,15 +49,47 @@ const TaskList = ({
         <ul className="taskListContainer">
           {filteredTasks.map((task) => (
             <li className="taskCard" key={task.id}>
-              <div className="taskCard-content">
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => handleCheckboxChange(task.id)}
-                />
-                <p className="taskCard-title">{task.taskName}</p>
+              <div className="taskCard-header">
+                <div className="taskCard-content">
+                  <input
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => handleCheckboxChange(task.id)}
+                  />
+                  <p className="taskCard-title">{task.taskName}</p>
+                </div>
+                <button onClick={() => deleteTask(task)}>Delete</button>
               </div>
-              <button onClick={() => deleteTask(task)}>Delete</button>
+              <div className="taskCard-body">
+                <div className="taskCard-body--info">
+                  <p className="taskCard-body--title">Priority: </p>
+                  <p className="taskCard-body--value">{task.priority}</p>
+                </div>
+                <div className="taskCard-body--info">
+                  <p className="taskCard-body--title">Priority: </p>
+                  <p className="taskCard-body--value">{task.priority}</p>
+                </div>
+                <div className="taskCard-body--info">
+                  <p className="taskCard-body--title">Story Points:</p>
+                  <p className="taskCard-body--value">{task.storyPoints}</p>
+                </div>
+                <div className="taskCard-body--info">
+                  <p className="taskCard-body--title">Assigned to:</p>
+                  <p className="taskCard-body--value">{task.assignedTo}</p>
+                </div>
+                <div className="taskCard-body--info">
+                  <p className="taskCard-body--title">Due date:</p>
+                  <p className="taskCard-body--value">
+                    {task.dueDate
+                      ? new Date(task.dueDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })
+                      : "No due date"}
+                  </p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

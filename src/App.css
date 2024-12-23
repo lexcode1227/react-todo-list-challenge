@@ -9,14 +9,14 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 24px;
+  padding: 16px;
   height: 100vh;
 }
-.title {
-  font-size: 1.5em;
+.todoTitle {
+  font-size: 80px;
   font-weight: bold;
-  margin-bottom: 0.5em;
   width: 100%;
+  text-align: center;
 }
 .todoList {
   width: 100%;

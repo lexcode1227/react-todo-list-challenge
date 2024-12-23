@@ -40,7 +40,7 @@ function App() {
 
   return (
     <main className="container">
-      <h1 className="todoTitle">Todo List</h1>
+      <h1 className="todoTitle">My ToDo</h1>
       <section className="todoList">
         <Form addTask={addTask} />
         <TaskList

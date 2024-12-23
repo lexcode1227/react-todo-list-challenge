@@ -1,8 +1,11 @@
 .taskList {
   width: 100%;
+  max-width: 550px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 16px;
+  margin: 0 auto;
 }
 
 ul {
@@ -18,16 +21,28 @@ ul {
   padding: 32px;
   border-radius: 45px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 550px;
 }
 .taskCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  color: black;
+}
+.taskCard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 1rem;
-  border: 1px solid #ccc;
+  padding: 16px;
   border-radius: 16px;
   color: black;
+  width: 100%;
 }
 .taskCard-content {
   display: flex;
@@ -39,4 +54,26 @@ ul {
   font-weight: bold;
   margin-bottom: 0.5rem;
   width: auto;
+}
+.taskCard-body {
+  width: 100%;
+}
+.taskCard-body--title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  width: auto;
+  text-align: left;
+}
+.taskCard-body--value {
+  font-size: 16px;
+  margin-bottom: 12px;
+  width: auto;
+  text-align: left;
+  font-weight: 500;
+  color: #f44141;
+}
+.taskCard-body--info {
+  display: flex;
+  gap: 8px;
 }
