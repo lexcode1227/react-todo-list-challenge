@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import "./Form.css";
-import { todoSchema } from "../validations/dataSchema";
+import { todoSchema } from "../validation/dataSchema";
 import { FormData, mappedPriority } from "../types";
 
 const Form = () => {

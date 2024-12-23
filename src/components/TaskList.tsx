@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { SearchFormData, Task } from "../types";
 import "./TaskList.css";
-import { searchTodoSchema } from "../validations/dataSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { searchTodoSchema } from "../validation/dataSchema";
+import { SearchFormData, Task } from "../types";
 
 const TaskList = () => {
   const { register } = useForm<SearchFormData>({
