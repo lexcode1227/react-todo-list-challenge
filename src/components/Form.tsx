@@ -47,6 +47,7 @@ const Form = ({
               message: "Task name must contain only alphabetic characters",
             },
           })}
+          placeholder="Create a new task"
           required
         />
         {errors.taskName && <span>{errors.taskName.message}</span>}
@@ -74,6 +75,7 @@ const Form = ({
           id="storyPoints"
           type="number"
           {...register("storyPoints", { valueAsNumber: true })}
+          placeholder="1 - 20"
           required
         />
         {errors.storyPoints && <span>{errors.storyPoints.message}</span>}
@@ -86,6 +88,7 @@ const Form = ({
           className="input"
           id="assignedTo"
           {...register("assignedTo")}
+          placeholder="Name of the person assigned to this task"
           required
         />
         {errors.assignedTo && <span>{errors.assignedTo.message}</span>}

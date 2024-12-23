@@ -68,10 +68,6 @@ const TaskList = ({
                   <p className="taskCard-body--value">{task.priority}</p>
                 </div>
                 <div className="taskCard-body--info">
-                  <p className="taskCard-body--title">Priority: </p>
-                  <p className="taskCard-body--value">{task.priority}</p>
-                </div>
-                <div className="taskCard-body--info">
                   <p className="taskCard-body--title">Story Points:</p>
                   <p className="taskCard-body--value">{task.storyPoints}</p>
                 </div>
@@ -96,7 +92,7 @@ const TaskList = ({
           ))}
         </ul>
       ) : (
-        <p>Not found result</p>
+        <p>Not found results</p>
       )}
     </section>
   );
