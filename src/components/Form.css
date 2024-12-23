@@ -1,0 +1,40 @@
+.form {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.formGroup {
+  margin-bottom: 1rem;
+}
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+span {
+  color: #f44141;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: block;
+}
