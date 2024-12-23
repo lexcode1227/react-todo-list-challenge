@@ -30,20 +30,22 @@ const TaskList = ({
   return (
     <section className="taskList">
       <h2>Todo List</h2>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div className="formGroup">
-          <label className="label" htmlFor="search">
-            Search
-          </label>
-          <input
-            className="input"
-            id="search"
-            {...register("search")}
-            placeholder="Search task by name..."
-            onChange={handleSearchChange}
-          />
-        </div>
-      </form>
+      {tasks.length !== 0 && (
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="formGroup">
+            <label className="label" htmlFor="search">
+              Search
+            </label>
+            <input
+              className="input"
+              id="search"
+              {...register("search")}
+              placeholder="Search task by name..."
+              onChange={handleSearchChange}
+            />
+          </div>
+        </form>
+      )}
 
       {filteredTasks.length > 0 ? (
         <ul className="taskListContainer">
