@@ -7,7 +7,7 @@ export const todoSchema = z.object({
     .min(5, "The task name must be greater than 5 and less than 30")
     .max(30)
     .regex(
-      /^[A-Za-z\s]+$/,
+      /^[A-Za-z][A-Za-z0-9\s]*$/,
       "Task name must contain only alphabetic characters and spaces"
     ),
   priority: z.enum(priority, {
