@@ -25,7 +25,7 @@ export const todoSchema = z.object({
     .min(new Date(), "Must be a valid date in the future.")
     .nullable()
     .refine((date) => date !== null && date > new Date(), {
-      message: "La fecha debe ser en el futuro",
+      message: "The due date must be in the future",
     }),
   completed: z.boolean(),
 });

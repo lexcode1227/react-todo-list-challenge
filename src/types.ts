@@ -19,7 +19,7 @@ export type Task = {
   assignedTo: string;
   dueDate: Date;
   completed: boolean;
-  id?: string;
+  id: string;
 };
 
 export type SearchFormData = z.infer<typeof searchTodoSchema>;

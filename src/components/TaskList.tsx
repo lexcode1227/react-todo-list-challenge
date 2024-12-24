@@ -12,8 +12,8 @@ const TaskList = ({
   handleCheckboxChange,
 }: {
   tasks: Task[];
-  deleteTask: (task: Task) => void;
-  handleCheckboxChange: (id: string | undefined) => void;
+  deleteTask: (id: string) => void;
+  handleCheckboxChange: (id: string) => void;
 }) => {
   const { register } = useForm<SearchFormData>({
     resolver: zodResolver(searchTodoSchema),
@@ -62,7 +62,7 @@ const TaskList = ({
                   />
                   <p className="taskCard-title">{task.taskName}</p>
                 </div>
-                <button onClick={() => deleteTask(task)}>Delete</button>
+                <button onClick={() => deleteTask(task.id)}>Delete</button>
               </div>
               <div className="taskCard-body">
                 <div className="taskCard-body--info">

@@ -7,26 +7,26 @@ import { Task } from "./types";
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  const addTask = (task: Task, callback: () => void) => {
+  const addTask = (task: Task, onSuccess: () => void) => {
     const taskWithId = {
       ...task,
       id: `${Date.now()}--${Math.random()}`,
     };
 
-    callback();
+    onSuccess();
     const updatedTasks = [...tasks, taskWithId];
 
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
-  const deleteTask = (TasktoDelete: Task) => {
-    const updatedTasks = tasks.filter((task) => task.id !== TasktoDelete.id);
+  const deleteTask = (id: string) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
-  const handleCheckboxChange = (id: string | undefined) => {
+  const handleCheckboxChange = (id: string) => {
     const updatedTasks = tasks.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
     );

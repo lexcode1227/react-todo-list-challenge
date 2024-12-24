@@ -7,7 +7,7 @@ import { mappedPriority, Task } from "../types";
 const Form = ({
   addTask,
 }: {
-  addTask: (task: Task, callback: () => void) => void;
+  addTask: (task: Task, onSuccess: () => void) => void;
 }) => {
   const {
     register,
