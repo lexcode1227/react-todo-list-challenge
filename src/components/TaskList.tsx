@@ -4,6 +4,7 @@ import "./TaskList.css";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { searchTodoSchema } from "../validation/dataSchema";
 import { SearchFormData, Task } from "../types";
+import { useDebounce } from "use-debounce";
 
 const TaskList = ({
   tasks,
@@ -18,9 +19,10 @@ const TaskList = ({
     resolver: zodResolver(searchTodoSchema),
   });
   const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValueDebounced] = useDebounce(searchValue, 500);
 
   const filteredTasks = tasks.filter((task) =>
-    task.taskName.toLowerCase().includes(searchValue)
+    task.taskName.toLowerCase().includes(searchValueDebounced)
   );
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
